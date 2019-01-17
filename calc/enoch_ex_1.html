@@ -1,0 +1,290 @@
+<DOCTYPE.html>
+    <html>
+    <head>
+        <title>Simple Calculator</title>
+        <style>
+            h2 {
+                color: blue;
+            }
+
+
+            body {
+                background-image: linear-gradient(to right, #ff9, #ffe6b3, #ccb3ff, #f99, #fc9, #0f0, #f9f);
+            }
+
+            select {
+                color: #000;
+                background-image: linear-gradient(to right, #f00, #fa0, #ff0, #0f0, #0ff, #9500ff, #f0f);
+            }
+
+            .button {
+                display: inline-block;
+                border-radius: 4px;
+                background-image: linear-gradient(to right, red, orange, yellow, green, blue, violet, purple);
+                border: none;
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 28px;
+                padding: 20px;
+                width: 175px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 3px;
+            }
+
+            .button:hover {
+                color: #600;
+            }
+
+            .button:active {
+                background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
+                color: #000
+            }
+            .rainbow {
+                background-image: linear-gradient(to right, red,orange,yellow, #00fff0,blue,violet);
+            }
+
+        </style>
+    </head>
+
+    <body>
+    <p><a href="#SCALCULATE">Go to statistics calculator</a></p>
+    <h1>Calculator</h1>
+    <form>
+        <p>First Number:</p>
+        <input id="input_a" type="number" name="quantity">
+        <p>Operation</p>
+        <p title="Required">
+            <select id="select_value rainbow" onChange="hideShow(this)">
+                <option value=" " selected="selected"></option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">x</option>
+                <option value="/">/</option>
+                <option value="squared">squared</option>
+                <option value="cubed">cubed</option>
+                <option value="Mod">Modulus(first/second)</option>
+                <option value="First^Second">First^Second*</option>
+                <option value="sin">Sine(sin)^</option>
+                <option value="cos">Cosine(cos)^</option>
+                <option value="tan">Tangent(tan)^</option>
+                <option value="arcsine">Arcsine'</option>
+                <option value="arccosine">Arccosine'</option>
+                <option value="arctan">Arctangent'</option>
+                <option value="x Pi">x &#960;</option>
+                <option value="Square root">&radic;</option>
+
+            </select>
+        </p>
+        <p id="p_b">Last Number:</p>
+        <input id="input_b" type="number" name="quantity">
+    </form>
+
+    <button class="button" onClick="calc()"><span>Calculate</span></button>
+
+    <script>
+        function hideShow(s) {
+            var b = document.getElementById("input_b");
+            var pb = document.getElementById("p_b");
+            var x = document.getElementById("select_value");
+            var x_value = x.options[x.selectedIndex].value;
+            var result;
+            switch (x_value) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                case "Mod":
+                case "First^Second":
+                    b.style.display = 'block';
+                    pb.style.display = 'block';
+                    break;
+                case "squared":
+                case "cubed":
+                case "sin":
+                case "cos":
+                case "tan":
+                case "arcsine":
+                case "arccosine":
+                case "arctan":
+                case "x Pi":
+                case "Square root":
+                    b.style.display = 'none';
+                    pb.style.display = 'none';
+                    break;
+            }
+        }
+
+        function calc() {
+            var a = Number(document.getElementById("input_a").value);
+            console.log(a);
+            var b = Number(document.getElementById("input_b").value);
+            console.log(b);
+            var x = document.getElementById("select_value");
+            var x_value = x.options[x.selectedIndex].value;
+            var result;
+            switch (x_value) {
+                case "+":
+                    result = a + b;
+                    break;
+                case "-":
+                    result = a - b;
+                    break;
+                case "*":
+                    result = a * b;
+                    break;
+                case "/":
+                    result = a / b;
+                    break;
+                case "squared":
+                    result = a ** 2;
+                    break;
+                case "cubed":
+                    result = a ** 3;
+                    break;
+                case "First^Second":
+                    result = a ** b;
+                    break;
+                case "Mod":
+                    result = a % b;
+                    break;
+                case "Square root":
+                    result = Math.sqrt(a);
+                    break;
+                case "sin":
+                    result = Math.sin(a * Math.PI / 180);
+                    break;
+                case "cos":
+                    result = Math.cos(a * Math.PI / 180);
+                    break;
+                case "tan":
+                    result = Math.tan(a * Math.PI / 180);
+                    break;
+                case "arcsine":
+                    result = Math.asin(a) * 180 / Math.PI;
+                    break;
+                case "arccosine":
+                    result = Math.acos(a) * 180 / Math.PI;
+                    break;
+                case "arctan":
+                    result = Math.atan(a) * 180 / Math.PI;
+                    break;
+                case "x Pi":
+                    result = (a * Math.PI);
+            }
+            document.getElementById("result").innerHTML = result;
+            document.getElementById("demo").innerHTML = a;
+            document.getElementById("pear").innerHTML = b;
+            document.getElementById("apple").innerHTML = x_value;
+        }
+
+        function pi() {
+            document.getElementById("pi_val").innerHTML = Math.PI;
+        }
+    </script>
+
+    <h2 id="demo"></h2>
+    <h2 id="apple"></h2>
+    <h2 id="pear"></h2>
+    <h2 id="pi_val"></h2>
+    <h2>__________________________</h2>
+    <h2 id="result"></h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>
+        <small>*First number to the power of the Second number
+        </small>
+        <br>
+
+        <small>^All values are in degrees for sin,cos,tan
+        </small>
+        <br>
+        <small>'All values are in degrees for arcsin,arccos,arctan
+        </small>
+    </p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 id="#SCALCULATE">Statistics Calculator</h1>
+
+    <form>
+        <p>Type numbers here, and seperate numbers with a comma</p>
+        <label for="Status"></label><textarea rows="5" cols="20" id="Status" title="Required"></textarea>
+        <p>Operation</p>
+        <label>
+            <select>
+                <option value="Mean">Mean</option>
+                <option value="Median">Median</option>
+                <option value="Mode">Mode</option>
+            </select>
+        </label>
+
+    </form>
+    <button class="button" onClick="calcState()"><span>Calculate</span></button>
+    <script>
+        function calcState() {
+            var stats = document.getElementById("Status").value;
+            console.log(stats);
+            var resultsplit = stats.split(",");
+            console.log(resultsplit);
+
+            var length = resultsplit.length;
+            console.log(length);
+            var zero = -1;
+
+            //for loop javascript syntax
+            var total = 0;
+            for (var i = 0; i < length; i++)
+                console.log(resultsplit[i]);
+            document.getElementById("numbers").innerHTML = resultsplit[i];
+            var mean = (resultsplit[i] / 1)
+
+
+        }
+    </script>
+    <p id=numbers></p>
+    </body>
+    </html>
+
+
