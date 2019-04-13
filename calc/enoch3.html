@@ -3,8 +3,7 @@
 <head>
     <style>
         body {
-            background-image: linear-gradient(to
-            right: cmyk(50%, 0%, 0%, 0%), cmyk(0%, 50%, 0%, 0%), cmyk(0%, 0%, 50%, 0%)
+            background-image: linear-gradient(to right, rgb(128, 255, 255), rgb(255, 128, 255), rgb(255, 255, 128))
         }
     </style>
 
@@ -17,7 +16,7 @@
     <input id="input_a" type="number" name="quantity">
     <p>Operation</p>
     <p title="Required">
-        <select onChange="hideShow(this)">
+        <select id="select_value" onChange="hideShow(this)">
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">x</option>
@@ -41,10 +40,11 @@
 <button onClick="calc()"><span>Calculate</span></button>
 <script>
     function hideShow(s) {
+        console.log("s=",s);
         var b = document.getElementById("input_b");
         var pb = document.getElementById("p_b");
         var x = document.getElementById("select_value");
-        var x_options = x.options[x.selectIndex].value;
+        var x_options = x.options[x.selectedIndex].value;
         var result;
         switch (x_options) {
             case "+":
@@ -76,7 +76,7 @@
         var a = Number(document.getElementById("input_a").value);
         console.log(a);
         var b = Number(document.getElementById("input_b").value);
-        console.log(b);
+        console.log('b=',b);
         var x = document.getElementById("select_value");
         var x_options = x.options[x.selectedIndex].value;
         var result;
@@ -137,6 +137,8 @@
 </script>
 <p id="demo"></p>
 <p id="apple"></p>
+<p id="pear"></p>
+
 <p>____________________________
 <p id="result"></p>
 </body>
