@@ -13,38 +13,43 @@
 <body>
 <h1> Calculator </h1>
 <form>
-    <label for="input_a">First Number:</label>
-    <input id="input_a" name="quantity" type="number">
-    <label for="select_value">Operation</label>
-    <select id="select_value" onChange="hideShow(this)">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">x</option>
-        <option value="/">/</option>
-        <option value="squared">squared</option>
-        <option value="cubed">cubed</option>
-        <option value="Mod">Modulus(first/second)</option>
-        <option value="First^Second">First^Second*</option>
-        <option value="sin">Sine(sin)^</option>
-        <option value="cos">Cosine(cos)^</option>
-        <option value="tan">Tangent(tan)^</option>
-        <option value="arcsine">Arcsine'</option>
-        <option value="arccosine">Arccosine'</option>
-        <option value="arctan">Arctangent'</option>
-        <option value="x Pi">x &#960;</option>
-    </select>
-    <label for="input_b">Last Number:</label>
-    <input id="input_b" type="number" name="quantity">
+    <div>
+        <label for="input_a">First Number:</label>
+        <input id="input_a" name="quantity" type="number">
+    </div>
+    <div>
+        <label for="select_value">Operation :</label>
+        <select id="select_value" onChange="hideShow(this)">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">x</option>
+            <option value="/">/</option>
+            <option value="squared">squared</option>
+            <option value="cubed">cubed</option>
+            <option value="Mod">Modulus(first/second)</option>
+            <option value="First^Second">First^Second*</option>
+            <option value="sin">Sine(sin)^</option>
+            <option value="cos">Cosine(cos)^</option>
+            <option value="tan">Tangent(tan)^</option>
+            <option value="arcsine">Arcsine'</option>
+            <option value="arccosine">Arccosine'</option>
+            <option value="arctan">Arctangent'</option>
+            <option value="x Pi">x &#960;</option>
+        </select>
+    </div>
+    <div id="group_b">
+        <label for="input_b">Last Number:</label>
+        <input id="input_b" type="number" name="quantity">
+    </div>
 </form>
 <button onClick="calc()"><span>Calculate</span></button>
+
 <script>
     function hideShow(s) {
         console.log("s=", s);
-        var b = document.getElementById("input_b");
-        var pb = document.getElementById("p_b");
-        var x = document.getElementById("select_value");
-        var x_options = x.options[x.selectedIndex].value;
-        var result;
+        const b = document.getElementById("group_b");
+        const x = document.getElementById("select_value");
+        const x_options = x.options[x.selectedIndex].value;
         switch (x_options) {
             case "+":
             case "-":
@@ -53,7 +58,6 @@
             case "Mod":
             case "First^Second":
                 b.style.display = 'block';
-                pb.style.display = 'block';
                 break;
             case "squared":
             case "cubed":
@@ -66,18 +70,15 @@
             case "x Pi":
             case "x pi squared":
                 b.style.display = 'none';
-                pb.style.display = 'none';
                 break;
         }
     }
 
     function calc() {
-        var a = Number(document.getElementById("input_a").value);
-        console.log(a);
-        var b = Number(document.getElementById("input_b").value);
-        console.log('b=', b);
-        var x = document.getElementById("select_value");
-        var x_options = x.options[x.selectedIndex].value;
+        const a = Number(document.getElementById("input_a").value);
+        const b = Number(document.getElementById("input_b").value);
+        const x = document.getElementById("select_value");
+        const x_options = x.options[x.selectedIndex].value;
         var result;
         switch (x_options) {
             case "+":
@@ -129,8 +130,8 @@
                 result = (a * Math.PI ** 2);
         }
         document.getElementById("result").innerHTML = result;
-        document.getElementById("demo").innerHTML = a;
-        document.getElementById("pear").innerHTML = b;
+        document.getElementById("demo").innerHTML = a.toString();
+        document.getElementById("pear").innerHTML = b.toString();
         document.getElementById("apple").innerHTML = x_options;
     }
 </script>
