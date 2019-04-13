@@ -1,46 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
     <style>
         body {
             background-image: linear-gradient(to right, rgb(128, 255, 255), rgb(255, 128, 255), rgb(255, 255, 128))
         }
     </style>
-
-
+    <title>
+        Calculator
+    </title>
 </head>
 <body>
 <h1> Calculator </h1>
 <form>
-    <p>First Number:</p>
-    <input id="input_a" type="number" name="quantity">
-    <p>Operation</p>
-    <p title="Required">
-        <select id="select_value" onChange="hideShow(this)">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">x</option>
-            <option value="/">/</option>
-            <option value="squared">squared</option>
-            <option value="cubed">cubed</option>
-            <option value="Mod">Modulus(first/second)</option>
-            <option value="First^Second">First^Second*</option>
-            <option value="sin">Sine(sin)^</option>
-            <option value="cos">Cosine(cos)^</option>
-            <option value="tan">Tangent(tan)^</option>
-            <option value="arcsine">Arcsine'</option>
-            <option value="arccosine">Arccosine'</option>
-            <option value="arctan">Arctangent'</option>
-            <option value="x Pi">x &#960;</option>
-        </select>
-    </p>
-    <p id="p_b">Last Number:</p>
+    <label for="input_a">First Number:</label>
+    <input id="input_a" name="quantity" type="number">
+    <label for="select_value">Operation</label>
+    <select id="select_value" onChange="hideShow(this)">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">x</option>
+        <option value="/">/</option>
+        <option value="squared">squared</option>
+        <option value="cubed">cubed</option>
+        <option value="Mod">Modulus(first/second)</option>
+        <option value="First^Second">First^Second*</option>
+        <option value="sin">Sine(sin)^</option>
+        <option value="cos">Cosine(cos)^</option>
+        <option value="tan">Tangent(tan)^</option>
+        <option value="arcsine">Arcsine'</option>
+        <option value="arccosine">Arccosine'</option>
+        <option value="arctan">Arctangent'</option>
+        <option value="x Pi">x &#960;</option>
+    </select>
+    <label for="input_b">Last Number:</label>
     <input id="input_b" type="number" name="quantity">
 </form>
 <button onClick="calc()"><span>Calculate</span></button>
 <script>
     function hideShow(s) {
-        console.log("s=",s);
+        console.log("s=", s);
         var b = document.getElementById("input_b");
         var pb = document.getElementById("p_b");
         var x = document.getElementById("select_value");
@@ -76,7 +75,7 @@
         var a = Number(document.getElementById("input_a").value);
         console.log(a);
         var b = Number(document.getElementById("input_b").value);
-        console.log('b=',b);
+        console.log('b=', b);
         var x = document.getElementById("select_value");
         var x_options = x.options[x.selectedIndex].value;
         var result;
