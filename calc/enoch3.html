@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: linear-gradient(to
+            right: cmyk(50%, 0%, 0%, 0%), cmyk(0%, 50%, 0%, 0%), cmyk(0%, 0%, 50%, 0%)
+        }
+    </style>
+
+
+</head>
+<body>
+<h1> Calculator </h1>
+<form>
+    <p>First Number:</p>
+    <input id="input_a" type="number" name="quantity">
+    <p>Operation</p>
+    <p title="Required">
+        <select onChange="hideShow(this)">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">x</option>
+            <option value="/">/</option>
+            <option value="squared">squared</option>
+            <option value="cubed">cubed</option>
+            <option value="Mod">Modulus(first/second)</option>
+            <option value="First^Second">First^Second*</option>
+            <option value="sin">Sine(sin)^</option>
+            <option value="cos">Cosine(cos)^</option>
+            <option value="tan">Tangent(tan)^</option>
+            <option value="arcsine">Arcsine'</option>
+            <option value="arccosine">Arccosine'</option>
+            <option value="arctan">Arctangent'</option>
+            <option value="x Pi">x &#960;</option>
+        </select>
+    </p>
+    <p id="p_b">Last Number:</p>
+    <input id="input_b" type="number" name="quantity">
+</form>
+<button onClick="calc()"><span>Calculate</span></button>
+<script>
+    function hideShow(s) {
+        var b = document.getElementById("input_b");
+        var pb = document.getElementById("p_b");
+        var x = document.getElementById("select_value");
+        var x_options = x.options[x.selectIndex].value;
+        var result;
+        switch (x_options) {
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+            case "Mod":
+            case "First^Second":
+                b.style.display = 'block';
+                pb.style.display = 'block';
+                break;
+            case "squared":
+            case "cubed":
+            case "sin":
+            case "cos":
+            case "tan":
+            case "arcsine":
+            case "arccosine":
+            case "arctan":
+            case "x Pi":
+            case "x pi squared":
+                b.style.display = 'none';
+                pb.style.display = 'none';
+                break;
+        }
+    }
+
+    function calc() {
+        var a = Number(document.getElementById("input_a").value);
+        console.log(a);
+        var b = Number(document.getElementById("input_b").value);
+        console.log(b);
+        var x = document.getElementById("select_value");
+        var x_options = x.options[x.selectedIndex].value;
+        var result;
+        switch (x_options) {
+            case "+":
+                result = a + b;
+                break;
+            case "-":
+                result = a - b;
+                break;
+            case "*":
+                result = a * b;
+                break;
+            case "/":
+                result = a / b;
+                break;
+            case "squared":
+                result = a ** 2;
+                break;
+            case "cubed":
+                result = a ** 3;
+                break;
+            case "First^Second":
+                result = a ** b;
+                break;
+            case "Mod":
+                result = a % b;
+                break;
+            case "sin":
+                result = Math.sin(a * Math.PI / 180);
+                break;
+            case "cos":
+                result = Math.cos(a * Math.PI / 180);
+                break;
+            case "tan":
+                result = Math.tan(a * Math.PI / 180);
+                break;
+            case "arcsine":
+                result = Math.asin(a) * 180 / Math.PI;
+                break;
+            case "arccosine":
+                result = Math.acos(a) * 180 / Math.PI;
+                break;
+            case "arctan":
+                result = Math.atan(a) * 180 / Math.PI;
+                break;
+            case "x Pi":
+                result = (a * Math.PI);
+                break;
+            case "x pi squared":
+                result = (a * Math.PI ** 2);
+        }
+        document.getElementById("result").innerHTML = result;
+        document.getElementById("demo").innerHTML = a;
+        document.getElementById("pear").innerHTML = b;
+        document.getElementById("apple").innerHTML = x_options;
+    }
+</script>
+<p id="demo"></p>
+<p id="apple"></p>
+<p>____________________________
+<p id="result"></p>
+</body>
+</html>
