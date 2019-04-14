@@ -5,6 +5,27 @@
         body {
             background-image: linear-gradient(to right, rgb(128, 255, 255), rgb(255, 128, 255), rgb(255, 255, 128))
         }
+
+        button {
+            background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 255, 0));
+        }
+
+        .button {
+            -webkit-transition-duration: 2s; /*For Safari users*/
+            transition-duration: 2s;
+            cursor: progress;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+
+        }
+
+        .button:hover {
+            background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 255, 0));
+        }
     </style>
     <title>
         Calculator
@@ -12,6 +33,34 @@
 </head>
 <body>
 <h1> Calculator </h1>
+<h1 style="color: rgba(255,255,0,0.7)">Contents:</h1>
+<a href="#scientific">Scientific calculator</a>
+<a href="#shape">Statistics Calculator</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 id="scientific">Scientific Calculator</h1>
 <form>
     <div>
         <label for="input_a">First Number:</label>
@@ -20,6 +69,7 @@
     <div>
         <label for="select_value">Operation :</label>
         <select id="select_value" onChange="hideShow(this)">
+            <option value="bl"></option>
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">x</option>
@@ -27,13 +77,13 @@
             <option value="squared">squared</option>
             <option value="cubed">cubed</option>
             <option value="Mod">Modulus(first/second)</option>
-            <option value="First^Second">First^Second*</option>
+            <option value="First^Second">To the power of</option>
             <option value="sin">Sine(sin)^</option>
             <option value="cos">Cosine(cos)^</option>
             <option value="tan">Tangent(tan)^</option>
-            <option value="arcsine">Arcsine'</option>
-            <option value="arccosine">Arccosine'</option>
-            <option value="arctan">Arctangent'</option>
+            <option value="arcsine">Arcsin'</option>
+            <option value="arccosine">Arccos'</option>
+            <option value="arctan">Arctan'</option>
             <option value="x Pi">x &#960;</option>
         </select>
     </div>
@@ -42,7 +92,7 @@
         <input id="input_b" type="number" name="quantity">
     </div>
 </form>
-<button onClick="calc()"><span>Calculate</span></button>
+<button class="button" onClick="calc()"><span>Calculate</span></button>
 
 <script>
     function hideShow(s) {
@@ -57,6 +107,7 @@
             case "/":
             case "Mod":
             case "First^Second":
+            case "bl":
                 b.style.display = 'block';
                 break;
             case "squared":
@@ -81,6 +132,9 @@
         const x_options = x.options[x.selectedIndex].value;
         var result;
         switch (x_options) {
+            case "bl":
+                result = "invalid input";
+                break;
             case "+":
                 result = a + b;
                 break;
@@ -139,7 +193,93 @@
 <p id="apple"></p>
 <p id="pear"></p>
 
-<p>____________________________
+<p>____________________________</p>
 <p id="result"></p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 id="shape">Statistics Calculator</h1>
+<br>
+<form>
+    <p>Type numbers here, and seperate numbers with a comma</p>
+    <textarea rows="3" cols="15" id="Status" title="Required"></textarea>
+    <p>Operation</p>
+    <label>
+        <select class="selectval1">
+            <option value="Mean">Mean</option>
+            <option value="Median">Median</option>
+            <option value="Mode">Mode</option>
+        </select>
+    </label>
+
+</form>
+<button class="button rainbow" onClick="calcStatistics()"><span>Calculate</span></button>
+<script>
+    function calcStatistics() {
+        var stats = document.getElementById("Status").value;
+        console.log(stats);
+        var resultsplit = stats.split(",");
+        console.log("resultsplit = " + resultsplit);
+
+        var length = resultsplit.length;
+        console.log("length = " + length);
+        var zero = -1;
+
+        //for loop javascript syntax
+        var sum = 0;
+        for (var i = 0; i < length; i++) {
+            sum = sum + Number(resultsplit[i]);
+        }
+        var mean = (resultsplit[i] / 1);
+        console.log("Sum = " + sum);
+        var calculationMean = sum / length;
+        console.log("Mean = " + calculationMean);
+        var totalv, points = resultsplit.sort(function (a, b) {
+            return a - b
+        }), switch1 = document.getElementById("selectval1"), switch2 = switch1.options[switch1.selectedIndex].value;
+
+        switch (switch2) {
+            case "Mean":
+                Result11 = calculationMean;
+                break;
+            case "Median":
+                Result11 = points;
+                break;
+
+        }
+        console.log("Result = " + Result11);
+    }
+</script>
+
+<p>Console Log <kbd>F12</kbd> for result</p>
 </body>
 </html>
