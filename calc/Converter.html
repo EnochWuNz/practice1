@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="US-en">
+<head>
+    <title>Converter</title>
+    <style>
+        body {
+            animation: change 66s infinite;
+        }
+
+        @keyframes change {
+            0% {
+                background-color: red;
+            }
+            10% {
+                background-color: orange;
+            }
+            20% {
+                background-color: yellow;
+            }
+            30% {
+                background-color: lime;
+            }
+            40% {
+                background-color: deepskyblue;
+            }
+            50% {
+                background-color: blueviolet;
+            }
+            60% {
+                background-color: violet;
+            }
+            70% {
+                background-color: white;
+            }
+            80% {
+                background-color: palegoldenrod;
+            }
+            90% {
+                background-color: goldenrod;
+            }
+            100% {
+                background-color: #ff8000
+
+            }
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        select {
+            background-image: linear-gradient(to right, red, yellow, lightblue, violet);
+        }
+        a {
+            color: #000;
+        }
+        a:visited {
+            color: darkblue;
+        }
+        a:hover {
+            color: #ff0000;
+        }
+        a:active {
+            color: red;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to converter</h1>
+<h1>Contents</h1>
+<a href="#R&D">Radians & Degrees</a>
+<br>
+<a href="#LC">Length Converter</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 id="R&D">Degrees to radians or radians to degrees</h2>
+<input id="input_a" name="quantity" type="number">
+<select id="select_value">
+    <option value="bl"></option>
+    <option value="cond-r">Degrees to Radians</option>
+    <option value="conr-d">Radians to Degrees</option>
+</select>
+<button onclick="con()">Convert</button>
+<script>
+    function con() {
+        const a = Number(document.getElementById("input_a").value);
+        const x = document.getElementById("select_value");
+        const x_options = x.options[x.selectedIndex].value;
+        var convrtdrd;
+        switch (x_options) {
+            case "bl":
+                convrtdrd = "Invalid Function";
+                break;
+            case "cond-r":
+                convrtdrd = a * Math.PI / 180;
+                break;
+            case "conr-d":
+                convrtdrd = a * 180 / Math.PI;
+                break;
+
+        }
+        document.getElementById("result").innerHTML = convrtdrd
+    }
+
+</script>
+<p id="result"></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 id="LC">Length Converter</h2>
+<input id="input_b" name="quantity" type="number">
+<select id="select_val">
+    <option value="bl"></option>
+    <option value="concm-in">cm to inch</option>
+    <option value="conin-cm">Inch to cm</option>
+    <option value="conft-m">Feet to m</option>
+    <option value="conm-ft">m to feet</option>
+</select>
+<button onclick="conlgth()">Convert</button>
+<script>
+    function conlgth() {
+        const b = Number(document.getElementById("input_b").value);
+        const y = document.getElementById("select_val");
+        const y_options = y.options[y.selectedIndex].value;
+        var convrtdrdlgth;
+        switch (x_options) {
+            case "bl":
+                convrtdrdlgth = "Invalid Function";
+                break;
+            case "concm-in":
+                convrtdrdlgth = b / 2.54;
+                break;
+            case "conin-cm":
+                convrtdrdlgth = b * 2.54;
+                break;
+            case "conft-m":
+                convrtdrdlgth = b / 3.28084;
+                break;
+            case "conm-ft":
+                convrtdrdlgth = b * 3.28084;
+                break;
+
+        }
+        document.getElementById("resultl").innerHTML = convrtdrdlgth
+    }
+</script>
+<p id="resultl"></p>
+
+</body>
+</html>

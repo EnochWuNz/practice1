@@ -24,6 +24,16 @@
         }
 
         .button:hover {
+            -webkit-transform: rotate(360deg); /*For Safari users*/
+            transform: rotate(360deg);
+        }
+
+        mark {
+            background-color: #ffffcc;
+            color: #ffaa22;
+        }
+
+        .button:hover {
             background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 255, 0));
         }
     </style>
@@ -36,6 +46,34 @@
 <h1 style="color: rgba(255,255,0,0.7)">Contents:</h1>
 <a href="#scientific">Scientific calculator</a>
 <a href="#shape">Statistics Calculator</a>
+<h1>
+    <mark>Welcome to my calculator</mark>
+</h1>
+<!-- Will not display highlighted text in IE 8 and before -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -267,19 +305,20 @@
             return a - b
         }), switch1 = document.getElementById("selectval1"), switch2 = switch1.options[switch1.selectedIndex].value;
 
+        var medianretrn=[points/2 + 0.5];
+
+        var Result11;
         switch (switch2) {
             case "Mean":
                 Result11 = calculationMean;
                 break;
             case "Median":
-                Result11 = points;
+                Result11 = medianretrn;
                 break;
 
         }
         console.log("Result = " + Result11);
     }
 </script>
-
-<p>Console Log <kbd>F12</kbd> for result</p>
 </body>
 </html>
