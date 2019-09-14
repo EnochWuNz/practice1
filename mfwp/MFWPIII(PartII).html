@@ -3,50 +3,75 @@
 <head>
     <title>Calculator (Class)</title>
     <style>
+        body {
+            animation: change 60s infinite;
+        }
+
+        @keyframes change {
+            0% {
+                background-color: red;
+            }
+            10% {
+                background-color: orange;
+            }
+            20% {
+                background-color: yellow;
+            }
+            30% {
+                background-color: lime;
+            }
+            40% {
+                background-color: deepskyblue;
+            }
+            50% {
+                background-color: blueviolet;
+            }
+            60% {
+                background-color: violet;
+            }
+            70% {
+                background-color: white;
+            }
+            80% {
+                background-color: palegoldenrod;
+            }
+            90% {
+                background-color: goldenrod;
+            }
+            100% {
+                background-color: #ff8000
+
+            }
+        }
+
         .button {
             background-image: linear-gradient(to right, #f00, #fa0, rgba(255, 255, 000, 1));
             font-size: 24px;
             -webkit-transition-duration: 1.4s; /* For Safari users */
             transition-duration: 1.4s;
         }
+
         .button:hover {
             background-image: linear-gradient(to left, #f00, #fa0, rgba(255, 255, 000, 1));
+        }
+
+        .button:active {
+            color: silver;
+            background-image: radial-gradient(blue, gold, silver);
         }
 
     </style>
 </head>
 <body>
 <h1>My Bank Money</h1>
-<p>No. of days you were here:</p>
+<p><label for="input_a">No. of days you were here:</label></p>
 <input id="input_a" max="5" min="1" type="number">
 <br>
-<p>No. of maths lessons</p>
+<p><label for="input_b">No. of maths lessons</label></p>
 <input id="input_b" type="number" min="0" max="10">
 <br>
-<p>How much money do you have?</p>
-<select id="select_val">
-    <option value="bl"></option>
-    <option value="0">$0-$74</option>
-    <option value="75">$75-$124</option>
-    <option value="125">$125-$174</option>
-    <option value="175">$175-$224</option>
-    <option value="225">$225-$274</option>
-    <option value="275">$275-$324</option>
-    <option value="325">$325-$374</option>
-    <option value="375">$375-$424</option>
-    <option value="425">$425-$474</option>
-    <option value="475">$475-$524</option>
-    <option value="525">$525-$574</option>
-    <option value="575">$575-$624</option>
-    <option value="625">$625-$674</option>
-    <option value="675">$675-$724</option>
-    <option value="725">$725-$774</option>
-    <option value="775">$775-$824</option>
-    <option value="825">$825-$874</option>
-    <option value="875">$875-$924</option>
-    <option value="925">$925-$974</option>
-    <option value="975">$975+</option>
-</select>
+<p><label for="input_c">How much money do you have?</label></p>
+<input id="input_c" type="number" min="0" max="10000">
 <br>
 <br>
 <button class="button" onclick="calculate()"><span>Calculate!</span></button>
@@ -57,81 +82,90 @@
         console.log("input_a:", document.getElementById("input_a").value);
         const b = Number(document.getElementById("input_b").value);
         console.log("input_b:", document.getElementById("input_b").value);
+        const c = Number(document.getElementById("input_c").value);
+        console.log("input c (amount):", document.getElementById("input_c").value);
         const x = document.getElementById("select_val");
         const x_options = x.options[x.selectedIndex].value;
-        var result;
+        let result;
+        let r = (6 * a - 2 * b) + c;
         console.log("a:", a);
         console.log("b:", b);
         console.log("x", x);
         console.log("x_options", x_options);
 
         switch (x_options) {
-            case "bl":
-                result = "&infin;";
+            case ((75 >= r) && (r >= 0)):
+                result = r + 5;
                 break;
-            case "0":
-                result = 6 * a - 2 * b;
+            case ((125 >= r) && (r > 75)):
+                result = r + 6;
                 break;
-            case "75":
-                result = 6 * a - 2 * b + 5;
+            case ((175 >= r) && (r > 125)):
+                result = r + 7;
                 break;
-            case "125":
-                result = 6 * a - 2 * b + 6;
+            case ((225 >= r) && (r > 175)):
+                result = r + 8;
                 break;
-            case "175":
-                result = 6 * a - 2 * b + 7;
+            case ((275 >= r) && (r > 225)):
+                result = r + 9;
                 break;
-            case "225":
-                result = 6 * a - 2 * b + 8;
+            case ((r > 275) && (325 >= r)):
+                result = r + 9;
                 break;
-            case "275":
-                result = 6 * a - 2 * b + 9;
+            case ((r > 325) && (375 >= r)):
+                result = r + 10;
                 break;
-            case "325":
-                result = 6 * a - 2 * b + 10;
+            case ((r > 375) && (425 >= r)):
+                result = r + 11;
                 break;
-            case "375":
-                result = 6 * a - 2 * b + 11;
+            case ((r > 425) && (475 >= r)):
+                result = r + 12;
                 break;
-            case "425":
-                result = 6 * a - 2 * b + 12;
+            case ((r > 475) && (525 >= r)):
+                result = r + 13;
                 break;
-            case "475":
-                result = 6 * a - 2 * b + 13;
+            case ((r > 525) && (575 >= r)):
+                result = r + 14;
                 break;
-            case "525":
-                result = 6 * a - 2 * b + 14;
+            case ((r > 575) && (625 >= r)):
+                result = r + 15;
                 break;
-            case "575":
-                result = 6 * a - 2 * b + 15;
+            case ((r > 625) && (675 >= r)):
+                result = r + 16;
                 break;
-            case "625":
-                result = 6 * a - 2 * b + 16;
+            case ((r > 675) && (725 >= r)):
+                result = r + 17;
                 break;
-            case "675":
-                result = 6 * a - 2 * b + 17;
+            case ((r > 725) && (875 >= r)):
+                result = r + 18;
                 break;
-            case "725":
-                result = 6 * a - 2 * b + 18;
+            case ((r > 875) && (925 >= r)):
+                result = r + 19;
                 break;
-            case "775":
-                result = 6 * a - 2 * b + 19;
+            case ((r > 925) && (975 >= r)):
+                result = r + 20;
                 break;
-            case "825":
-                result = 6 * a - 2 * b + 20;
+            case ((r > 975) && (1025 >= r)):
+                result = r + 21;
                 break;
-            case "875":
-                result = 6 * a - 2 * b + 21;
+            case ((r > 1025) && (1075 >= r)):
+                result = r + 22;
                 break;
-            case "925":
-                result = 6 * a - 2 * b + 22;
+            case ((r > 1075) && (1125 >= r)):
+                result = r + 23;
         }
         document.getElementById("o_Result").innerHTML = result;
     }
 </script>
+<script>
+    document.getElementById("Survey_code").innerHTML = Math.random();
+</script>
 
 <p>The money the bank owes you is : </p>
 <p id="o_Result">$</p>
+<p>We welcome your feedback!</p><br>
+<p>Simply copy the number underneath onto the <a href="https://docs.google.com/document/d/1L4EF4Vb-aNqo4BdakOQCVCiMD7TBBWjnzUm3auQ4M0w/edit">survey sheet</a> to comment!</p>
+<p id="Survey_code"></p>
 <br>
 <br>
 <br>
