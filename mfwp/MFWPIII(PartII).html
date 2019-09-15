@@ -84,88 +84,64 @@
         console.log("input_b:", document.getElementById("input_b").value);
         const c = Number(document.getElementById("input_c").value);
         console.log("input c (amount):", document.getElementById("input_c").value);
-        const x = document.getElementById("select_val");
-        const x_options = x.options[x.selectedIndex].value;
-        let result;
+        let result = 0;
         let r = (6 * a - 2 * b) + c;
+        console.log("r = ", r);
         console.log("a:", a);
         console.log("b:", b);
-        console.log("x", x);
-        console.log("x_options", x_options);
+        console.log(((125 >= r) && (r > 75)));
+        console.log("result = ", result);
 
-        switch (x_options) {
-            case ((75 >= r) && (r >= 0)):
-                result = r + 5;
-                break;
-            case ((125 >= r) && (r > 75)):
-                result = r + 6;
-                break;
-            case ((175 >= r) && (r > 125)):
-                result = r + 7;
-                break;
-            case ((225 >= r) && (r > 175)):
-                result = r + 8;
-                break;
-            case ((275 >= r) && (r > 225)):
-                result = r + 9;
-                break;
-            case ((r > 275) && (325 >= r)):
-                result = r + 9;
-                break;
-            case ((r > 325) && (375 >= r)):
-                result = r + 10;
-                break;
-            case ((r > 375) && (425 >= r)):
-                result = r + 11;
-                break;
-            case ((r > 425) && (475 >= r)):
-                result = r + 12;
-                break;
-               case ((r > 475) && (525 >= r)):
-                result = r + 13;
-                break;
-            case ((r > 525) && (575 >= r)):
-                result = r + 14;
-                break;
-            case ((r > 575) && (625 >= r)):
-                result = r + 15;
-                break;
-            case ((r > 625) && (675 >= r)):
-                result = r + 16;
-                break;
-            case ((r > 675) && (725 >= r)):
-                result = r + 17;
-                break;
-            case ((r > 725) && (875 >= r)):
-                result = r + 18;
-                break;
-            case ((r > 875) && (925 >= r)):
-                result = r + 19;
-                break;
-            case ((r > 925) && (975 >= r)):
-                result = r + 20;
-                break;
-            case ((r > 975) && (1025 >= r)):
-                result = r + 21;
-                break;
-            case ((r > 1025) && (1075 >= r)):
-                result = r + 22;
-                break;
-            case ((r > 1075) && (1125 >= r)):
-                result = r + 23;
+        if ((75 >= r) && (r >= 0)) {
+            result = r;
+        } else if ((125 >= r) && (r > 75)) {
+            result = r + 5;
+        } else if ((175 >= r) && (r > 125)) {
+            result = r + 6
+        } else if ((225 >= r) && (r > 175)) {
+            result = r + 7
+        } else if ((275 >= r) && (r > 225)) {
+            result = r + 8
+        } else if ((r > 275) && (325 >= r)) {
+            result = r + 9
+        } else if ((r > 325) && (375 >= r)) {
+            result = r + 10
+        } else if ((r > 375) && (425 >= r)) {
+            result = r + 11
+        } else if ((r > 425) && (475 >= r)) {
+            result = r + 12
+        } else if ((r > 475) && (525 >= r)) {
+            result = r + 13
+        } else if ((r > 525) && (575 >= r)) {
+            result = r + 14
+        } else if ((r > 575) && (625 >= r)) {
+            result = r + 15
+        } else if ((r > 625) && (675 >= r)) {
+            result = r + 16
+        } else if ((r > 675) && (725 >= r)) {
+            result = r + 17
+        } else if ((r > 725) && (875 >= r)) {
+            result = r + 18
+        } else if ((r > 875) && (925 >= r)) {
+            result = r + 19
+        } else if ((r > 925) && (975 >= r)) {
+            result = r + 20
+        } else if ((r > 975) && (1025 >= r)) {
+            result = r + 21
+        } else if ((r > 1025) && (1075 >= r)) {
+            result = r + 22
+        } else {
+            result = r + 23
         }
-        document.getElementById("o_Result").innerHTML = result;
+        document.getElementById("o_Result").innerHTML = result.toString();
+        console.log("result = ", result);
     }
-</script>
-<script>
-    document.getElementById("Survey_code").innerHTML = Math.random();
+
+
 </script>
 
 <p>The money the bank owes you is : </p>
 <p id="o_Result">$</p>
-<p>We welcome your feedback!</p><br>
-<p>Simply copy the number underneath onto the <a href="https://docs.google.com/document/d/1L4EF4Vb-aNqo4BdakOQCVCiMD7TBBWjnzUm3auQ4M0w/edit">survey sheet</a> to comment!</p>
-<p id="Survey_code"></p>
 <br>
 <br>
 <br>
