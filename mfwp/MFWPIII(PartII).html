@@ -86,6 +86,7 @@
         console.log("input c (amount):", document.getElementById("input_c").value);
         let result = 0;
         let r = (6 * a - 2 * b) + c;
+        let p = Math.floor(Math.random() * 100000000) + 1;
         console.log("r = ", r);
         console.log("a:", a);
         console.log("b:", b);
@@ -133,8 +134,10 @@
         } else {
             result = r + 23
         }
-        document.getElementById("o_Result").innerHTML = result.toString();
-        console.log("result = ", result);
+        let resultOverall = result - c;
+        document.getElementById("o_Result").innerHTML = resultOverall.toString();
+        console.log("result = ", resultOverall);
+        document.getElementById("SS").innerHTML = p.toString()
     }
 
 
@@ -142,6 +145,8 @@
 
 <p>The money the bank owes you is : </p>
 <p id="o_Result">$</p>
+<p>Write on the <a href="https://docs.google.com/document/d/1L4EF4Vb-aNqo4BdakOQCVCiMD7TBBWjnzUm3auQ4M0w/edit?usp=sharing">survey sheet</a> with this code : (if you want to)</p>
+<p id="SS"></p>
 <br>
 <br>
 <br>
